@@ -22,11 +22,12 @@ class Details extends Component {
     );
   }
 
+  
+
   render() {
     if (this.state.loading) {
       return <h2>Loading</h2>;
     }
-    throw new Error("Borken");
     const { animal, breed, city, state, description, name, images } =
       this.state;
     return (
