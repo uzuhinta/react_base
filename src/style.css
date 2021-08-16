@@ -87,9 +87,9 @@ body {
   text-overflow: ellipsis;
 }
 
-header > a,
+/* header > a,
 #root > div > h1 {
-}
+} */
 
 .pet h2 {
   white-space: nowrap;

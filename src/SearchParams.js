@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 import ThemeContext from "./ThemeContext";
+import ReducerComponent from "./Reducer";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -76,6 +77,7 @@ const SearchParams = () => {
           </select>
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
+        <ReducerComponent />
       </form>
       <Results pets={pets} />
     </div>
