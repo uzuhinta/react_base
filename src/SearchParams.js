@@ -3,6 +3,7 @@ import useBreedList from "./useBreedList";
 import Results from "./Results";
 import ThemeContext from "./ThemeContext";
 import ReducerComponent from "./Reducer";
+import MemoComponent from "./Memo";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -77,8 +78,11 @@ const SearchParams = () => {
           </select>
         </label>
         <button style={{ backgroundColor: theme }}>Submit</button>
-        <ReducerComponent />
       </form>
+      <div style={{ display: "block" }}>
+        <ReducerComponent />
+        <MemoComponent />
+      </div>
       <Results pets={pets} />
     </div>
   );
