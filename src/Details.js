@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoudary";
 import ThemeContext from "./ThemeContext";
+import Modal from "./Modal";
 class Details extends Component {
   state = { loading: true };
 
@@ -23,7 +24,13 @@ class Details extends Component {
     );
   }
 
+  toggleModal = () => this.setState({ showModal: !this.state.showModal });
+
+  adopt = () => {
+    window.location = "http://youtube.com";
+  };
   render() {
+    const { showModal } = this.state;
     if (this.state.loading) {
       return <h2>Loading</h2>;
     }
@@ -36,10 +43,26 @@ class Details extends Component {
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${city}, ${state}`}</h2>
           <ThemeContext.Consumer>
-            {([theme]) => <button style={{backgroundColor: theme}}>Adopt {name}</button>}
+            {([theme]) => (
+              <button
+                onClick={this.toggleModal}
+                style={{ backgroundColor: theme }}
+              >
+                Adopt {name}
+              </button>
+            )}
             {/* {(theme) => <button style={{backgroundColor: theme[0]}}>Adopt {name}</button>} */}
           </ThemeContext.Consumer>
           <p>{description}</p>
+          {showModal ? (
+            <Modal >
+              <div>Would you like adopt {name}?</div>
+              <div className="buttons">
+                <button onClick={this.adopt}>Yes</button>
+                <button onClick={this.toggleModal}>No</button>
+              </div>
+            </Modal>
+          ) : null}
         </div>
       </div>
     );
