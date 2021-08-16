@@ -4,6 +4,7 @@ import Results from "./Results";
 import ThemeContext from "./ThemeContext";
 import ReducerComponent from "./Reducer";
 import MemoComponent from "./Memo";
+import CallbackComponent from "./Callback";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -13,7 +14,7 @@ const SearchParams = () => {
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const [breeds] = useBreedList(animal);
-  const [theme, setTheme] = useContext(ThemeContext);
+  const [theme] = useContext(ThemeContext);
   useEffect(() => {
     requestPets();
   }, []);
@@ -82,6 +83,7 @@ const SearchParams = () => {
       <div style={{ display: "block" }}>
         <ReducerComponent />
         <MemoComponent />
+        <CallbackComponent />
       </div>
       <Results pets={pets} />
     </div>

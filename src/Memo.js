@@ -16,7 +16,7 @@ const MemoComponent = () => {
       {/* eslint-disable-next-line */}
       <h2
         style={{ color: isGreen ? "green" : "red" }}
-        onClick={(e) => setIsGreen(!isGreen)}
+        onClick={() => setIsGreen(!isGreen)}
       >
         useMemo Example
       </h2>
