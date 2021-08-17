@@ -2,8 +2,12 @@
   "name": "react_base",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "build:client": "parcel build --public-url ./dist/ src/index.html",
+    "build:server": "parcel build -d dist-server --target node server/index.js",
+    "build": "npm run build:client && npm run build:server",
+    "start": "npm -s run build && node dist-server/index.js",
     "dev": "parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint  \"src/**/*.{js,jsx}\" --quiet"
@@ -23,10 +27,11 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "parcel": "^2.0.0-rc.0",
+    "parcel": "^1.12.3",
     "prettier": "^2.3.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0"
